@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>MediatR.Pipeline.Diagnostics</Title>
+        <Authors>Christopher Flanagan</Authors>
+        <Description>Provides a pipeline for DiagnosticSource-based instrumentation.</Description>
+        <AssemblyVersion>0.1.0</AssemblyVersion>
+        <FileVersion>0.1.0</FileVersion>
+        <PackageVersion>0.1.0</PackageVersion>
+        <PackageProjectUrl>https://github.com/f1ana/MediatR.Pipeline.Diagnostics</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/f1ana/MediatR.Pipeline.Diagnostics/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/f1ana/MediatR.Pipeline.Diagnostics</RepositoryUrl>
+        <PackageTags>mediatr, pipeline, diagnostics, f1ana</PackageTags>
+        <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+      <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.0" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Pipeline.Diagnostics", "MediatR.Pipeline.Diagnostics\MediatR.Pipeline.Diagnostics.csproj", "{4F41A22C-609A-45A5-B4B8-F07242304A5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D0AC845B-675A-482F-B518-B514A0EFE225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Pipeline.Diagnostics.Tests", "MediatR.Pipeline.Diagnostics.Tests\MediatR.Pipeline.Diagnostics.Tests.csproj", "{E68AD8F8-7098-4EBD-9759-C36D821812A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F41A22C-609A-45A5-B4B8-F07242304A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F41A22C-609A-45A5-B4B8-F07242304A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F41A22C-609A-45A5-B4B8-F07242304A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F41A22C-609A-45A5-B4B8-F07242304A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68AD8F8-7098-4EBD-9759-C36D821812A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68AD8F8-7098-4EBD-9759-C36D821812A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68AD8F8-7098-4EBD-9759-C36D821812A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68AD8F8-7098-4EBD-9759-C36D821812A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E68AD8F8-7098-4EBD-9759-C36D821812A3} = {D0AC845B-675A-482F-B518-B514A0EFE225}
+	EndGlobalSection
+EndGlobal
