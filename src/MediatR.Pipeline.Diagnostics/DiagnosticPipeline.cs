@@ -4,18 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR.Pipeline.Diagnostics.Constants;
 using MediatR.Pipeline.Diagnostics.Events;
-using MediatR.Pipeline.Diagnostics.Options;
-using MediatR.Pipeline.Diagnostics.Resolvers;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace MediatR.Pipeline.Diagnostics {
     public class DiagnosticPipeline<TRequest, TResponse> : DiagnosticPipelineBase, IPipelineBehavior<TRequest, TResponse> {
-        private readonly IOptions<MediatrDiagnostics> _options;
-
-        public DiagnosticPipeline(IOptions<MediatrDiagnostics> options) {
-            _options = options;
-        }
         
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next) {
             var id = Guid.NewGuid();
@@ -48,7 +39,6 @@ namespace MediatR.Pipeline.Diagnostics {
                 RequestType = request.GetType(),
                 RequestGuid = requestGuid,
                 TotalMilliseconds = totalMilliseconds,
-                Payload = createPayload(request),
                 RequestSubType = getSubType(request)
             };
         }
@@ -58,16 +48,9 @@ namespace MediatR.Pipeline.Diagnostics {
                 RequestType = request.GetType(),
                 RequestGuid = requestGuid,
                 TotalMilliseconds = totalMilliseconds,
-                Payload = createPayload(request),
                 RequestSubType = getSubType(request),
                 Exception = e
             };
-        }
-
-        private string createPayload(TRequest request) {
-            return JsonConvert.SerializeObject(request, Formatting.Indented, new JsonSerializerSettings {
-                ContractResolver = new MaskingContractResolver(_options)
-            });
         }
 
         private string getSubType(TRequest request) {

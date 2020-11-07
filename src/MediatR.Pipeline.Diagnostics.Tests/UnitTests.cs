@@ -6,9 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using MediatR.Pipeline.Diagnostics.Constants;
-using MediatR.Pipeline.Diagnostics.Events;
-using MediatR.Pipeline.Diagnostics.Options;
-using Microsoft.Extensions.Options;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -22,7 +19,7 @@ namespace MediatR.Pipeline.Diagnostics.Tests {
         [SetUp]
         public void Setup() {
             _observer = Substitute.For<IMockObserver>();
-            _sut = new DiagnosticPipeline<SampleQuery, int>(generateMockOptions);
+            _sut = new DiagnosticPipeline<SampleQuery, int>();
             _subscription = getListenerFromSut().Subscribe(_observer);
             _observer.When(x =>
                 x.OnNext(Arg.Is<DiagnosticListener>(y => y.Name == DiagnosticListenerConstants.LISTENER_NAME))).Do(
@@ -82,14 +79,6 @@ namespace MediatR.Pipeline.Diagnostics.Tests {
         
             // assert
             capturedKeys.Should().BeEquivalentTo(expectedKeys);
-        }
-
-        private IOptions<MediatrDiagnostics> generateMockOptions => Microsoft.Extensions.Options.Options.Create(generateMockOptionsObject());
-
-        private MediatrDiagnostics generateMockOptionsObject() {
-            return new MediatrDiagnostics {
-                MaskedProperties = new[] {"Password", "Token"}
-            };
         }
         
         private DiagnosticListener getListenerFromSut() {
